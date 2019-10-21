@@ -1,13 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+import Login from './components/login.js';
+import PrivateRoutes from './components/routes/PrivateRoutes.js';
+
 
 function App() {
   return (
-    <div className="App">
-      Hardcoded from App.js to check rendering
-      
-    </div>
+    <Router>
+      <div className='app'>
+        <h4>Disney Parents</h4>
+        <ul>
+          <li>
+            <Link to ='/login'/>
+          </li>
+          <li>
+            <Link to ='/users'/>
+          </li>
+        </ul>
+        <Switch>
+          <PrivateRoutes exact path ='/protected' component={Login}/>
+          <Route path={'/login'} component={Login}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
