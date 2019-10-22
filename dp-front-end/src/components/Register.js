@@ -1,6 +1,7 @@
 import React from 'react';
 import axiosWithAuth from '../components/store/utils/axiosWithAuth';
 
+
 const Register = props => {
     const [form, setForm] = React.useState({ firstName: "", lastName: "", username: "", password: "" });
 
