@@ -3,8 +3,7 @@ import React from 'react';
 import Register from './components/Register';
 import ParentForm from './components/ParentForm';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Login from './components/Login';
+import Login from './components/login.js';
 
 import './App.css';
 
