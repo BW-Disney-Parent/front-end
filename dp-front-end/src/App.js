@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Register from './components/Register';
-import ParentForm from './components/ParentForm.js';
+import ParentForm from './components/ParentForm';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/login.js';
 
@@ -11,13 +11,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
+        <Route path="/register-form" component={Register} />
+        <Login />
       </div>
       <div>
         <ParentForm/>
-        <Login/>
-        <Register/>
       </div>
+      {/* <div>
+        <ParentForm />
+      </div> */}
     </Router>
   );
 }
