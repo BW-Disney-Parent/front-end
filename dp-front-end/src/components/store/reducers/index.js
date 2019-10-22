@@ -1,7 +1,7 @@
 import { FETCHING_MESSAGE_SUCCESS } from '../actions/index.js';
 
 const iniialState = {
-    'smurfs': [
+    'Parents': [
         {
             firstname: "Amber",
             lastname: "Sorensen",
@@ -11,7 +11,7 @@ const iniialState = {
         }
     ]};
 
-export const reducer = (state = iniialState, action) =>{
+const reducer = (state = iniialState, action) =>{
     switch(action.type) {
         case FETCHING_MESSAGE_SUCCESS:
             return{
@@ -22,3 +22,5 @@ export const reducer = (state = iniialState, action) =>{
                 return state;
     }
 }  
+
+export default reducer;

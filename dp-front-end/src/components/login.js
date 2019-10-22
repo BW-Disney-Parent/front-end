@@ -1,6 +1,6 @@
 import React from 'react';
 
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../components/store/utils/axiosWithAuth.js';
 import { Link } from 'react-router-dom';
 
 
