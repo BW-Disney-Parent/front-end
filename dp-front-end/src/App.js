@@ -16,6 +16,9 @@ function App() {
         <Route path="/register-form" component={Register} />
         <Login />
       </div>
+      <div>
+        <ParentForm/>
+      </div>
       {/* <div>
         <ParentForm />
       </div> */}
