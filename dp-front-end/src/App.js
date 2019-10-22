@@ -16,7 +16,7 @@ function App() {
         <Login />
       </div>
       <div>
-        <ParentForm/>
+        <ParentForm />
       </div>
       {/* <div>
         <ParentForm />

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
@@ -21,12 +22,14 @@ const ParentForm = props =>{
         };
         props.addParent(newParent);
         setParent({firstname:'', lastname:'', kids:'', request:''})
+
     };
 
     return (
         <form onSubmit={submitForm} className='parentForm'>
             <label htmlFor='first name'>First Name: </label>
             <input
+
             type='text'
             name='firstname'
             placeholder='Your First Name'
@@ -61,6 +64,7 @@ const ParentForm = props =>{
 
             
 
+
             <button type='submit'>Post Request</button>
 
 
@@ -68,10 +72,14 @@ const ParentForm = props =>{
     );
 };
 
-const mapStateToProps = state =>{
+
+const mapStateToProps = state => {
+
     return {
 
     }
 }
 
-export default connect(mapStateToProps, {addParent})(ParentForm);
+
+export default connect(mapStateToProps, { addParent })(ParentForm);
+
