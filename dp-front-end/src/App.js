@@ -12,13 +12,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
+        <Route path="/register-form" component={Register} />
         <Login />
-        <Register />
       </div>
-      <div>
+      {/* <div>
         <ParentForm />
-      </div>
+      </div> */}
     </Router>
   );
 }

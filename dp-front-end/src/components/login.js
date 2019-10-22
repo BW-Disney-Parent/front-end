@@ -1,5 +1,6 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { Link } from 'react-router-dom';
 
 const Login = props => {
     const [form, setForm] = React.useState({ username: "", password: "" });
@@ -11,7 +12,7 @@ const Login = props => {
     const login = e => {
         e.preventDefault();
         axiosWithAuth()
-            .post("/api/auth/login", form)
+            .post("https://disney-parent-lambda.herokuapp.com/api/auth/login", form)
             .then(res => {
                 console.log(res);
                 localStorage.setItem("token", res.data.payload);
@@ -43,6 +44,9 @@ const Login = props => {
                 />
                 <button type="submit">Log In</button>
             </form>
+            <div>
+                <p>Don't have an account? <Link to='/register-form'>Sign Up!</Link></p>
+            </div>
         </>
     );
 };
