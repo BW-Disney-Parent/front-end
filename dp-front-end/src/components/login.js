@@ -1,8 +1,5 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
-import axiosWithAuth from './utils/axiosWithAuth.js';
-
+import axiosWithAuth from '../axiosWithAuth/axiosWithAuth';
 
 const Login = props => {
     const [form, setForm] = React.useState({ username: "", password: "" });
@@ -36,7 +33,6 @@ const Login = props => {
                     placeholder="UserName"
                     onChange={handleChanges}
                     value={form.username}
-                    required
                 />
                 <input
                     type="password"
@@ -44,15 +40,9 @@ const Login = props => {
                     placeholder="Password"
                     onChange={handleChanges}
                     value={form.password}
-                    pattern="[^/s]{6,}"
-                    title="Password must be at least 6 non-space characters"
-                    required
                 />
                 <button type="submit">Log In</button>
             </form>
-            <div>
-                <p>Don't have an account yet? <Link to='/register-form'>Sign Up!</Link></p>
-            </div>
         </>
     );
 };
