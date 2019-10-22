@@ -1,4 +1,7 @@
+import axios from 'axios';
+
 import axiosWithAuth from '.../utils/axiosWithAuth.js';
+
 
 
 export const ADD_PARENT ='ADD_PARENT';
@@ -21,3 +24,15 @@ export const getParent = () => dispatch => {
     })
 }
 
+export const addParent = (newParent) => dispatch => {
+    axios
+    .post('https://disney-parent-lambda.herokuapp.com/api', newParent)
+    .then(res => {
+        console.log(res)
+        dispatch({type:FETCHING_MESSAGE_SUCCESS, payload:res.data})
+    })
+    .catch(err=> {
+        console.log(err.toString())
+        dispatch({type: FETCHING_MESSAGE_FAILURE, payload:err.toString()})
+    })
+}
