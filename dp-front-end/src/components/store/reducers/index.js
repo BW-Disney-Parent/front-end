@@ -1,7 +1,7 @@
 import { FETCHING_MESSAGE_SUCCESS } from '../actions/index.js';
 
 const iniialState = {
-    'smurfs': [
+    'Parents': [
         {
             firstname: "Amber",
             lastname: "Sorensen",

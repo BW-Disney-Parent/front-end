@@ -76,7 +76,10 @@ const ParentForm = props =>{
 const mapStateToProps = state => {
 
     return {
-
+        meetingPlace:'', 
+        dateTime:'', 
+        kids:'', 
+        description:''
     }
 }
 
