@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axiosWithAuth from '.../utils/axiosWithAuth.js';
 
 
 export const ADD_PARENT ='ADD_PARENT';
@@ -9,7 +9,7 @@ export const FETCHING_MESSAGE_FAILURE = 'FETCHING_MESSAGE_FAILURE';
 export const getParent = () => dispatch => {
     dispatch({type: FETCHING_MESSAGE_START});
 
-    axios 
+    axiosWithAuth 
     .get ('https://disney-parent-lambda.herokuapp.com/api')
     .then( res =>{
         console.log(res);
