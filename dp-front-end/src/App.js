@@ -10,6 +10,8 @@ function App() {
     <Router>
       <div className="App">
         <Route path="/login" component={Login} />
+        <Login />
+
         <Route path="/register-form" component={Register} />
       </div>
     </Router>
