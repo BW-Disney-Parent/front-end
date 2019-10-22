@@ -1,5 +1,5 @@
 import React from 'react';
-import axiosWithAuth from '../axiosWithAuth/axiosWithAuth';
+import axiosWithAuth from '../components/store/utils/axiosWithAuth.js';
 
 const Login = props => {
     const [form, setForm] = React.useState({ username: "", password: "" });
