@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/login.js';
 
 import './App.css';
+import PrivateRoute from './components/routes/PrivateRoutes';
 
 function App() {
   return (
@@ -13,10 +14,9 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Login} />
         <Route path="/register-form" component={Register} />
-        <Login />
       </div>
       <div>
-        <ParentForm />
+        <PrivateRoute path='/parent-form' component={ParentForm}/>
       </div>
       {/* <div>
         <ParentForm />

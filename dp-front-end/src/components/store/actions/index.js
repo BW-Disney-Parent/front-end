@@ -1,4 +1,4 @@
-import axiosWithAuth from '../utils/axiosWithAuth.js';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 
