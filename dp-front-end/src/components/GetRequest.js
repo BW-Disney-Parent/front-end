@@ -9,7 +9,7 @@ const GetRequest = props => {
     }, []);
 
     if (props.isFetching) {
-        return <h2>Getting your Request...</h2>
+        return <h2>Making your Request...</h2>
     }
     return (
         <div>

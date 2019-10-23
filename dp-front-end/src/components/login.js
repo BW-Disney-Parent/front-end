@@ -17,7 +17,7 @@ const Login = props => {
             .post("https://disney-parent-lambda.herokuapp.com/api/auth/login", form)
             .then(res => {
                 console.log(res);
-                localStorage.setItem("token", res.data.payload);
+                localStorage.setItem("Authorization", res.data.token);
                 props.history.push("/");
             })
             .catch(err => {
