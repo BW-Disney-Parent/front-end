@@ -14,7 +14,6 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Login} />
         <Route path="/register-form" component={Register} />
-        <Login />
       </div>
       <div>
         <PrivateRoute path='/parent-form' component={ParentForm}/>
