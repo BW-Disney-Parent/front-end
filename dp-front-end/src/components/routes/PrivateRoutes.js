@@ -7,13 +7,13 @@ import {Route, Redirect} from 'react-router-dom';
  const PrivateRoute = ({ component: Component, ...rest }) => (
      <Route
        {...rest}
-       render={props =>
-         localStorage.getItem("token") ? (
-           <Component {...props} />
-         ) : (
-           <Redirect to="/login" />
-         )
-       }
+       render={() => {
+        if  (localStorage.getItem("token"))  {
+           return <Component {...rest} />
+         } else {
+          return <Redirect to="/login" />
+         }
+       }}
      />
    );
 

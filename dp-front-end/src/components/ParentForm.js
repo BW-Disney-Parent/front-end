@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
 
+
 const ParentForm = props => {
     const [parent, setParent] = useState({ meetingPlace: '', dateTime: '', kids: '', description: '' });
 
@@ -24,6 +25,8 @@ const ParentForm = props => {
         setParent({ meetingPlace: '', dateTime: '', kids: '', description: '' })
 
     };
+
+  
 
     return (
         <form onSubmit={submitForm} className='parentForm'>
