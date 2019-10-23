@@ -16,11 +16,8 @@ function App() {
         <Route path="/register-form" component={Register} />
       </div>
       <div>
-        <PrivateRoute path='/parent-form' component={ParentForm}/>
+        <PrivateRoute path='/parent-form' component={ParentForm} />
       </div>
-      {/* <div>
-        <ParentForm />
-      </div> */}
     </Router>
   );
 }
