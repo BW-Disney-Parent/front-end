@@ -2,9 +2,10 @@
 import React, { useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
+import axiosWithAuth from './store/utils/axiosWithAuth.js';
 
 const ParentForm = props =>{
-    const [parent, setParent]=useState({firstname:'', lastname:'', request:''});
+    const [parent, setParent]=useState({firstname:'', lastname:'',kids:'', request:''});
 
     const changeHandler = e =>{
         setParent({...parent, [e.target.name]: e.target.value});
@@ -24,6 +25,8 @@ const ParentForm = props =>{
         setParent({firstname:'', lastname:'', kids:'', request:''})
 
     };
+
+  
 
     return (
         <form onSubmit={submitForm} className='parentForm'>
