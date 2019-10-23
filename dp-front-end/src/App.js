@@ -2,7 +2,7 @@ import React from 'react';
 
 import Register from './components/Register';
 import ParentForm from './components/ParentForm';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/login.js';
 
 import './App.css';
@@ -16,11 +16,11 @@ function App() {
         <Route path="/register-form" component={Register} />
       </div>
       <div>
-        <PrivateRoute path='/parent-form' component={ParentForm}/>
+      <Switch>
+        <PrivateRoute exact path='/parentform' component={ParentForm}/>
+        <Route path={'/login'} component={Login}/>
+      </Switch>
       </div>
-      {/* <div>
-        <ParentForm />
-      </div> */}
     </Router>
   );
 }
