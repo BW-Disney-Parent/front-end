@@ -19,7 +19,7 @@ const ParentForm = props => {
         e.preventDefault();
         const newParent = {
             ...parent,
-            requesterUserID: 1
+            requesterUserID: props.user.id
         };
         props.addParent(newParent);
         setParent({ meetingPlace: '', dateTime: '', kids: '', description: '' })
@@ -76,12 +76,9 @@ const ParentForm = props => {
 
 
 const mapStateToProps = state => {
-
+    console.log(state);
     return {
-        meetingPlace: '',
-        dateTime: '',
-        kids: '',
-        description: ''
+        user: state.currentUser
     }
 }
 

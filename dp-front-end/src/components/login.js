@@ -1,6 +1,6 @@
 import React from 'react';
-
-import axiosWithAuth from '../components/store/utils/axiosWithAuth';
+import { connect } from 'react-redux';
+import { loginUser } from './store/actions/index.js';
 import { Link } from 'react-router-dom';
 
 
@@ -13,17 +13,9 @@ const Login = props => {
 
     const login = e => {
         e.preventDefault();
-        axiosWithAuth()
-            .post("https://disney-parent-lambda.herokuapp.com/api/auth/login", form)
-            .then(res => {
-                console.log(res);
-                localStorage.setItem("Authorization", res.data.token);
-                props.history.push("/parentform");
-            })
-            .catch(err => {
-                console.log(err.response);
-                setForm({ username: "", password: "" });
-            });
+        props.loginUser(form);
+        setForm({ username: "", password: "" });
+        props.history.push("/parent-form");
     };
 
     return (
@@ -53,4 +45,8 @@ const Login = props => {
     );
 };
 
-export default Login;
+const mapStateToProps = state => {
+    return {}
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);
