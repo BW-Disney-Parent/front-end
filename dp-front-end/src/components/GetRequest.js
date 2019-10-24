@@ -1,21 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Request from './Request';
 import { getParent } from './store/actions';
+import axiosWithAuth from './store/utils/axiosWithAuth.js'
 
-const GetRequest = ({ getParent, getRequest }) => {
+
+const GetRequest = props => {
+    
+const [requests, setRequests]=useState([1,2,3]);
+
     useEffect(() => {
-        getParent();
-    }, [getParent]);
-    console.log('my getRequest info', getRequest);
+        const random=   axiosWithAuth()
+        .get('requests/all')
+        .then(res => {
+            console.log('hello from get parent', res);
+            setRequests(res.data)
+        })
+        .catch(err => {
+            console.log(err.toString())
+        })
+        console.log('props', props);
+        console.log('random',random);
+    }, []);
+
+    if (props.isFetching) {
+        return <h2>Making your Request...</h2>
+    }
+    console.log('Props in getrequest', props);
+    console.log('request hook', requests)
 
     return (
-        <div className='requestCard'>
-            {getRequest.map(request => {
-                return (
-                    <Request key={request.id} />
-                )
-            })}
+        <div>
+            {props.error && <p>{props.error}</p>}
+            {requests.map(request => (
+                <Request key={request.id} request={request} />
+            ))}
+
         </div>
     )
 }

@@ -27,13 +27,14 @@ export const FETCHING_MESSAGE_FAILURE = 'FETCHING_MESSAGE_FAILURE';
 
 export const getParent = (newParent) => dispatch => {
     dispatch({ type: FETCHING_MESSAGE_START });
-    console.log('res from the getParent action', newParent);
-    axiosWithAuth()
-        .get('https://disney-parent-lambda.herokuapp.com/api/requests/all', newParent)
-        .then(res => {
 
-            console.log('res after request submit', res);
-            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
+
+    console.log('inside get parent action')
+     axiosWithAuth()
+        .get('requests/all')
+        .then(res => {
+            console.log('hello from get parent', res);
+            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data })
 
         })
         .catch(err => {
@@ -47,7 +48,7 @@ export const getParent = (newParent) => dispatch => {
 export const addParent = (newParent) => dispatch => {
     console.log('this is newParent', newParent);
     axiosWithAuth()
-        .post('https://disney-parent-lambda.herokuapp.com/api/requests', newParent)
+        .post('requests', newParent)
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
