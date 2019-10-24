@@ -48,7 +48,7 @@ export const addParent = (newParent) => dispatch => {
         .post('https://disney-parent-lambda.herokuapp.com/api/requests', newParent)
         .then(res => {
             console.log(res)
-            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data })
+            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
         })
         .catch(err => {
             console.log(err.toString())
