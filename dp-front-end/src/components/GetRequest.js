@@ -3,29 +3,26 @@ import { connect } from 'react-redux';
 import Request from './Request';
 import { getParent } from './store/actions';
 
-const GetRequest = props => {
+const GetRequest = ({ getParent, getRequest }) => {
     useEffect(() => {
-        props.getParent();
-    }, []);
+        getParent();
+    }, [getParent]);
+    console.log('my getRequest info', getRequest);
 
-    if (props.isFetching) {
-        return <h2>Making your Request...</h2>
-    }
     return (
-        <div>
-            {props.error && <p>{props.error}</p>}
-            {props.getRequest.map(request => (
-                <Request key={request.id} request={request} />
-            ))}
+        <div className='requestCard'>
+            {getRequest.map(request => {
+                return (
+                    <Request key={request.id} />
+                )
+            })}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        getRequest: state.getRequest,
-        isFetching: state.isFetching,
-        error: state.error
+        getRequest: state.request
     }
 }
 
