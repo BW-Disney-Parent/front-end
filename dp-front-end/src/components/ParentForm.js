@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
 import styled from 'styled-components';
+import GetRequest from './GetRequest.js';
 
 const Wrapper=styled.div`
     border:1px solid black;
@@ -37,9 +38,10 @@ const ParentForm = props => {
         setParent({ ...parent, [e.target.name]: e.target.value });
     };
 
-    useEffect(() => {
-        getParent();
-    }, [])
+    // useEffect(() => {
+    //    const requests= props.getParent();
+    //     console.log('get parent:',requests);
+    // }, [])
 
     const submitForm = e => {
         e.preventDefault();
@@ -103,6 +105,9 @@ const ParentForm = props => {
             <Button type='submit'>Post Request</Button>
 
 
+            <div>
+                <GetRequest/>
+            </div>
         </form>
         </Wrapper>
     );
@@ -117,7 +122,7 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { addParent })(ParentForm);
+export default connect(mapStateToProps, { addParent , getParent })(ParentForm);
 
 
 
