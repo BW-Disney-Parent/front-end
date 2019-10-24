@@ -2,14 +2,14 @@ import React from 'react';
 import UserRequests from './UserRequests.js';
 import ParentForm from './ParentForm.js';
 
-function Dashboard(){
-    return(
+function Dashboard() {
+    return (
         <div>
             <div>
-                <ParentForm/>
+                <ParentForm />
             </div>
             <div>
-                <UserRequests/>
+                <UserRequests />
             </div>
         </div>
     )
