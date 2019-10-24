@@ -6,21 +6,21 @@ import axiosWithAuth from './store/utils/axiosWithAuth.js'
 
 
 const GetRequest = props => {
-    
-const [requests, setRequests]=useState([1,2,3]);
+
+    const [requests, setRequests] = useState([]);
 
     useEffect(() => {
-        const random=   axiosWithAuth()
-        .get('requests/all')
-        .then(res => {
-            console.log('hello from get parent', res);
-            setRequests(res.data)
-        })
-        .catch(err => {
-            console.log(err.toString())
-        })
+        const random = axiosWithAuth()
+            .get('requests/all')
+            .then(res => {
+                console.log('hello from get parent', res);
+                setRequests(res.data)
+            })
+            .catch(err => {
+                console.log(err.toString())
+            })
         console.log('props', props);
-        console.log('random',random);
+        console.log('random', random);
     }, []);
 
     if (props.isFetching) {
