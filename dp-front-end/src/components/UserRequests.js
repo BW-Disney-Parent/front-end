@@ -3,25 +3,29 @@ import { connect } from 'react-redux';
 import axiosWithAuth from './store/utils/axiosWithAuth.js';
 import GetRequest from './GetRequest.js';
 import Request from './Request';
-import { getParent } from './store/actions';
+import { getParent, editRequest } from './store/actions';
 
 const UserRequest = props => {
     const [userRequests, setUserRequests] = useState([]);
 
 
     useEffect(() => {
-        const awa = axiosWithAuth()
-            .get('/requests/all', { "filter": { "requesterUserID": 1 } })
+        axiosWithAuth()
+            .get('/requests/all')
             .then(res => {
-
                 console.log('UserRequest response', res)
-                setUserRequests(res.data)
+                const { data } = res;
+
+                const requests = data.filter(requestObj =>
+                    requestObj.requesterUserID === props.user.id && true
+                )
+                setUserRequests(requests)
             })
             .catch(err => {
                 console.log(err.toString())
             })
         console.log('data received in User request useEffect hook', props)
-    }, [])
+    }, [props.user])
 
 
     if (props.isFetching) {
@@ -33,17 +37,19 @@ const UserRequest = props => {
         <div>
             {props.error && <p>{props.error}</p>}
             {userRequests.map(request => (
-                <Request key={request.id} request={request} />
+                <Request key={request.id} request={request} editRequest={props.editRequest} />
             ))}
         </div>
     )
 }
 
 const mapStateToProps = state => {
+    console.log("current user mst", state.currentUser);
     return {
-        getRequest: state.request
+        getRequest: state.request,
+        user: state.currentUser
     }
 }
 
-export default connect(mapStateToProps, { getParent })(GetRequest);
+export default connect(mapStateToProps, { getParent, editRequest })(UserRequest);
 

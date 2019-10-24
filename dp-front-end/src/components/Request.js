@@ -5,6 +5,7 @@ import React from 'react';
 
 const Request = props => {
     console.log(props);
+    const { editRequest, deleteRequest, request } = props;
     return (
         <div className="request">
             <h2>Request For:</h2>
@@ -14,6 +15,8 @@ const Request = props => {
                 <p>Number of Kids: {props.request.kids}</p>
                 <p>Description: {props.request.description}</p>
             </div>
+            <button onClick={() => editRequest(request)} >Edit</button>
+            <button onClick={() => deleteRequest(request)}>Delete</button>
         </div>
     )
 }

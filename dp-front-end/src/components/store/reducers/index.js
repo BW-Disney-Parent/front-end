@@ -1,4 +1,4 @@
-import { LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE, FETCHING_MESSAGE_SUCCESS, FETCHING_MESSAGE_FAILURE, FETCHING_MESSAGE_START } from '../actions/index.js';
+import { LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE, FETCHING_MESSAGE_SUCCESS, FETCHING_MESSAGE_FAILURE, FETCHING_MESSAGE_START, EDIT_SUCCESS, UPDATE_COMPLETE, DELETE_SUCCESS, DELETE_FAILURE } from '../actions/index.js';
 
 const initialState = {
     'Parents': [
@@ -15,7 +15,9 @@ const initialState = {
     isLoggingIn: false,
     loggingInErr: "",
     isFetching: false,
-    error: ""
+    error: "",
+    currentRequest: {},
+    isEditingRequest: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -57,6 +59,20 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 isFetching: false
+            }
+        case EDIT_SUCCESS:
+            return {
+                ...state,
+                isEditingRequest: true
+            }
+        case UPDATE_COMPLETE:
+            return {
+                ...state,
+                isEditingRequest: false
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state
             }
         default:
             return state;

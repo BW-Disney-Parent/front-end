@@ -7,6 +7,7 @@ import Login from './components/login.js';
 
 import './App.css';
 import PrivateRoute from './components/routes/PrivateRoutes';
+import GetRequest from './components/GetRequest';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <div>
         <Switch>
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
-          <Route path={'/login'} component={Login} />
+          <Route path="/getrequest" component={GetRequest} />
         </Switch>
       </div>
     </Router>
