@@ -31,8 +31,10 @@ export const getParent = (newParent) => dispatch => {
     axiosWithAuth()
         .get('https://disney-parent-lambda.herokuapp.com/api/requests/all', newParent)
         .then(res => {
+
             console.log('res after request submit', res);
             dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
+
         })
         .catch(err => {
             console.log(err.toString())
