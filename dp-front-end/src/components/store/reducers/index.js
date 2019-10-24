@@ -1,4 +1,4 @@
-import { FETCHING_MESSAGE_SUCCESS, LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE } from '../actions/index.js';
+import { LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE, FETCHING_MESSAGE_SUCCESS, FETCHING_MESSAGE_FAILURE, FETCHING_MESSAGE_START } from '../actions/index.js';
 
 const initialState = {
     'Parents': [
@@ -39,16 +39,28 @@ const reducer = (state = initialState, action) => {
                 loggingInErr: action.payload
             }
 
-
-
+        case FETCHING_MESSAGE_START:
+            return {
+                ...state,
+                isFetching: true,
+                error: '',
+            }
         case FETCHING_MESSAGE_SUCCESS:
             return {
                 ...state,
+                isFetching: false,
+                error: '',
                 parent: action.payload
+            }
+        case FETCHING_MESSAGE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isFetching: false
             }
         default:
             return state;
     }
-}
+};
 
 export default reducer;

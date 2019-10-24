@@ -16,10 +16,10 @@ function App() {
         <Route path="/register-form" component={Register} />
       </div>
       <div>
-      <Switch>
-        <PrivateRoute exact path='/parentform' component={ParentForm}/>
-        <Route path={'/login'} component={Login}/>
-      </Switch>
+        <Switch>
+          <PrivateRoute exact path='/parent-form' component={ParentForm} />
+          <Route path={'/login'} component={Login} />
+        </Switch>
       </div>
     </Router>
   );

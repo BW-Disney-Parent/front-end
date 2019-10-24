@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
+import axiosWithAuth from './store/utils/axiosWithAuth.js';
 
 
 const ParentForm = props => {
@@ -23,10 +24,16 @@ const ParentForm = props => {
         };
         props.addParent(newParent);
         setParent({ meetingPlace: '', dateTime: '', kids: '', description: '' })
-
+        // axiosWithAuth()
+        //     .post('https://disney-parent-lambda.herokuapp.com/api/requests/all', newParent)
+        //     .then(res => {
+        //         setParent(res.data);
+        //         console.log(res.data);
+        //     })
+        //     .catch(err => console.log(err.res));
     };
 
-  
+
 
     return (
         <form onSubmit={submitForm} className='parentForm'>
