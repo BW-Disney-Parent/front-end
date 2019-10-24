@@ -32,7 +32,7 @@ export const getParent = () => dispatch => {
         .get('https://disney-parent-lambda.herokuapp.com/api/requests/all')
         .then(res => {
             console.log(res);
-            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data })
+            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.meetingPlace })
         })
         .catch(err => {
             console.log(err.toString())
