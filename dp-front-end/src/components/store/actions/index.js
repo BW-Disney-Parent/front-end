@@ -11,7 +11,7 @@ export const loginUser = (form) => dispatch => {
     axiosWithAuth()
         .post("https://disney-parent-lambda.herokuapp.com/api/auth/login", form)
         .then(res => {
-            console.log(res);
+            console.log('res after login', res);
             localStorage.setItem("Authorization", res.data.token);
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data.user })
         })
@@ -25,8 +25,9 @@ export const FETCHING_MESSAGE_START = 'FETCHING_MESSAGE_START';
 export const FETCHING_MESSAGE_SUCCESS = 'FETCHING_MESSAGE_SUCESS';
 export const FETCHING_MESSAGE_FAILURE = 'FETCHING_MESSAGE_FAILURE';
 
-export const getParent = () => dispatch => {
+export const getParent = (newParent) => dispatch => {
     dispatch({ type: FETCHING_MESSAGE_START });
+
 
     console.log('inside get parent action')
      axiosWithAuth()
@@ -34,6 +35,7 @@ export const getParent = () => dispatch => {
         .then(res => {
             console.log('hello from get parent', res);
             dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data })
+
         })
         .catch(err => {
             console.log(err.toString())
@@ -44,12 +46,12 @@ export const getParent = () => dispatch => {
 
 
 export const addParent = (newParent) => dispatch => {
-    console.log(newParent);
+    console.log('this is newParent', newParent);
     axiosWithAuth()
         .post('requests', newParent)
         .then(res => {
             console.log(res)
-            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data })
+            dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
         })
         .catch(err => {
             console.log(err.toString())

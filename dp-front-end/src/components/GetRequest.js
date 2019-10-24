@@ -4,6 +4,7 @@ import Request from './Request';
 import { getParent } from './store/actions';
 import axiosWithAuth from './store/utils/axiosWithAuth.js'
 
+
 const GetRequest = props => {
     
 const [requests, setRequests]=useState([1,2,3]);
@@ -34,15 +35,14 @@ const [requests, setRequests]=useState([1,2,3]);
             {requests.map(request => (
                 <Request key={request.id} request={request} />
             ))}
+
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        getRequest: state.getRequest,
-        isFetching: state.isFetching,
-        error: state.error
+        getRequest: state.request
     }
 }
 
