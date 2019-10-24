@@ -39,4 +39,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{getParent})(GetRequest);
+export default connect(mapStateToProps,{getParent})(GetRequest)
