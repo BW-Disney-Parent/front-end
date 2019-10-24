@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 
-const Wrapper=styled.div`
+const Wrapper = styled.div`
     border:1px solid black;
     font-family:'Roboto Condensed';
     font-size:1.65rem;
@@ -13,13 +13,13 @@ const Wrapper=styled.div`
     background-color:#1994d7;
     height: 350px; 
 `
-const Inputs=styled.input`
+const Inputs = styled.input`
     display:flex;
     display:block;
     margin-left:295px;
     margin-bottom:25px;
 `
-const Button=styled.button`
+const Button = styled.button`
     width:25%;
     height:25px;
     border-radius:10px;
@@ -40,7 +40,7 @@ const Login = props => {
         e.preventDefault();
         props.loginUser(form);
         setForm({ username: "", password: "" });
-        props.history.push("/parent-form");
+        props.history.push("/dashboard");
     };
 
     return (
