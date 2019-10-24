@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from './store/utils/axiosWithAuth.js';
 import GetRequest from './GetRequest.js';
+import Request from './Request';
+import { connect } from 'react-redux';
+import {getParent } from './store/actions';
 
 const UserRequest = props => {
     const [userRequests, setUserRequests] = useState([]);
