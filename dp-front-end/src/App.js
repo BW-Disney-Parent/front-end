@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Register from './components/Register';
-import ParentForm from './components/ParentForm';
+import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/login.js';
 
@@ -17,7 +17,7 @@ function App() {
       </div>
       <div>
         <Switch>
-          <PrivateRoute exact path='/parent-form' component={ParentForm} />
+          <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <Route path={'/login'} component={Login} />
         </Switch>
       </div>
