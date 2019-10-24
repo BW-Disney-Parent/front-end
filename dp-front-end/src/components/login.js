@@ -2,6 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from './store/actions/index.js';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+
+const Wrapper=styled.div`
+    border:1px solid black;
+    font-family:'Roboto Condensed';
+    font-size:1.65rem;
+    color:#253b56;
+    background-color:#1994d7;
+    height: 350px; 
+`
+const Inputs=styled.input`
+    display:flex;
+    display:block;
+    margin-left:295px;
+    margin-bottom:25px;
+`
+const Button=styled.button`
+    width:25%;
+    height:25px;
+    border-radius:10px;
+    font-family:'Roboto Condensed';
+    font-size:1rem;
+`
+
 
 
 const Login = props => {
@@ -19,29 +44,29 @@ const Login = props => {
     };
 
     return (
-        <>
+        <Wrapper>
             <h1>Disney Parent</h1>
             <form onSubmit={login}>
-                <input
+                <Inputs
                     type="text"
                     name="username"
                     placeholder="UserName"
                     onChange={handleChanges}
                     value={form.username}
                 />
-                <input
+                <Inputs
                     type="password"
                     name="password"
                     placeholder="Password"
                     onChange={handleChanges}
                     value={form.password}
                 />
-                <button type="submit">Log In</button>
+                <Button type="submit">Log In</Button>
             </form>
             <div>
                 <p>Don't have an account? <Link to='/register-form'>Sign Up!</Link></p>
             </div>
-        </>
+        </Wrapper>
     );
 };
 

@@ -1,6 +1,34 @@
 import React from 'react';
 import axiosWithAuth from '../components/store/utils/axiosWithAuth';
+import styled from 'styled-components';
 
+
+const Wrapper=styled.div`
+    border:1px solid black;
+    font-family:'Roboto Condensed';
+    font-size:1.65rem;
+    color:#253b56;
+    background-color:#1994d7;
+    height:400px;
+`
+
+const Input=styled.input`
+    border:1px solid black;
+    display:flex;
+    display:block;
+    margin-left:275px;
+    margin-bottom:25px;
+    width:150px;
+    height:25px;
+`
+
+const Button=styled.button`
+    width:25%;
+    height:25px;
+    border-radius:10px;
+    font-family:'Roboto Condensed';
+    font-size:1rem;
+`
 
 const Register = props => {
     const [form, setForm] = React.useState({ firstName:"", lastName:"", username:"", password:"" });
@@ -25,10 +53,10 @@ const Register = props => {
     };
 
     return (
-        <>
+        <Wrapper>
             <h1>Register Now!</h1>
             <form onSubmit={register}>
-                <input
+                <Input
                     type="text"
                     name="firstName"
                     placeholder="First Name"
@@ -36,7 +64,7 @@ const Register = props => {
                     value={form.firstname}
                     required
                 />
-                <input
+                <Input
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
@@ -44,7 +72,7 @@ const Register = props => {
                     value={form.lastname}
                     required
                 />
-                <input
+                <Input
                     type="text"
                     name="username"
                     placeholder="Create UserName"
@@ -52,7 +80,7 @@ const Register = props => {
                     value={form.username}
                     required
                 />
-                <input
+                <Input
                     type="password"
                     name="password"
                     placeholder="Create Password"
@@ -62,9 +90,9 @@ const Register = props => {
                     title="Password must be at least 6 non-space characters"
                     required
                 />
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </form>
-        </>
+        </Wrapper>
     );
 };
 

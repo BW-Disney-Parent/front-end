@@ -2,8 +2,33 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addParent, getParent } from './store/actions/index.js';
-import axiosWithAuth from './store/utils/axiosWithAuth.js';
+import styled from 'styled-components';
 
+const Wrapper=styled.div`
+    border:1px solid black;
+    font-family:'Roboto Condensed';
+    font-size:1.25rem;
+    color:#253b56;
+    background-color:#1994d7;
+    height:300px;
+`
+
+const Input=styled.input`
+    border:1px solid black;
+    display:flex;
+    display:block;
+    margin-left:275px;
+    margin-bottom:25px;
+    width:150px;
+`
+
+const Button=styled.button`
+    width:25%;
+    height:25px;
+    border-radius:10px;
+    font-family:'Roboto Condensed';
+    font-size:1rem;
+`
 
 const ParentForm = props => {
     const [parent, setParent] = useState({ meetingPlace: '', dateTime: '', kids: '', description: '' });
@@ -36,9 +61,10 @@ const ParentForm = props => {
 
 
     return (
+        <Wrapper>
         <form onSubmit={submitForm} className='parentForm'>
             <label htmlFor='meeting place'>Meeting Place: </label>
-            <input
+            <Input
 
                 type='text'
                 name='meetingPlace'
@@ -47,7 +73,7 @@ const ParentForm = props => {
                 onChange={changeHandler} />
 
             <label htmlFor='date time'>Date and Time: </label>
-            <input
+            <Input
                 type='text'
                 name='dateTime'
                 placeholder='YYYY-MM-DD HH:MM'
@@ -55,7 +81,7 @@ const ParentForm = props => {
                 onChange={changeHandler} />
 
             <label htmlFor='kids'>Number of Kids:</label>
-            <input
+            <Input
                 type='text'
                 name='kids'
                 placeholder='Number of Kids you Have'
@@ -64,7 +90,7 @@ const ParentForm = props => {
             />
 
             <label htmlFor='description'>Post Your Request: </label>
-            <input
+            <Input
                 type='field'
                 name='description'
                 placeholder='Write What You Are Requesting Help For'
@@ -74,10 +100,11 @@ const ParentForm = props => {
 
 
 
-            <button type='submit'>Post Request</button>
+            <Button type='submit'>Post Request</Button>
 
 
         </form>
+        </Wrapper>
     );
 };
 
