@@ -5,29 +5,38 @@ import { addParent } from './store/actions/index.js';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+    display:flex;
+    justify-content:center;
     border:1px solid black;
     font-family:'Roboto Condensed';
     font-size:1.25rem;
     color:#253b56;
     background-color:#1994d7;
-    height:300px;
+    height:400px;
+    width:100%;
 `
 
 const Input = styled.input`
     border:1px solid black;
     display:flex;
     display:block;
-    margin-left:275px;
     margin-bottom:25px;
-    width:150px;
+    width:250px;
 `
 
 const Button = styled.button`
-    width:25%;
-    height:25px;
+    display:flex;
+    width:150px;
+    height:35px;
     border-radius:10px;
     font-family:'Roboto Condensed';
     font-size:1rem;
+    justify-content:center;
+`
+
+const Header=styled.h3`
+    display:flex;
+    text-decoration:underline;
 `
 
 
@@ -55,6 +64,7 @@ const ParentForm = props => {
     return (
         <Wrapper>
             <form onSubmit={submitForm} className='parentForm'>
+                <Header>Please Fill Out This Form For Your Request: </Header>
                 <label htmlFor='meeting place'>Meeting Place: </label>
                 <Input
 
@@ -96,7 +106,9 @@ const ParentForm = props => {
                 <Button type='submit'>Post Request</Button>
 
 
+
             </form>
+
 
         </Wrapper>
     );

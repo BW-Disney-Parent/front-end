@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import axiosWithAuth from './store/utils/axiosWithAuth.js';
 import GetRequest from './GetRequest.js';
 import Request from './Request';
+
 import { getParent, editRequest } from './store/actions';
+
 
 const UserRequest = props => {
     const [userRequests, setUserRequests] = useState([]);
@@ -51,5 +53,7 @@ const mapStateToProps = state => {
     }
 }
 
+
 export default connect(mapStateToProps, { getParent, editRequest })(UserRequest);
+
 
