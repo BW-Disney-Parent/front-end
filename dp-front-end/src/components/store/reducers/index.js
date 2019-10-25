@@ -1,4 +1,4 @@
-import { LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE, FETCHING_MESSAGE_SUCCESS, FETCHING_MESSAGE_FAILURE, FETCHING_MESSAGE_START, EDIT_SUCCESS, UPDATE_COMPLETE, DELETE_SUCCESS, DELETE_FAILURE } from '../actions/index.js';
+import { LOGIN_USER_SUCCESS, LOGIN_USER_START, LOGIN_USER_FAILURE, FETCHING_MESSAGE_SUCCESS, FETCHING_MESSAGE_FAILURE, FETCHING_MESSAGE_START, EDIT_SUCCESS, DELETE_SUCCESS, DELETE_FAILURE, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAILURE } from '../actions/index.js';
 
 const initialState = {
     'Parents': [
@@ -28,7 +28,6 @@ const reducer = (state = initialState, action) => {
                 isLoggingIn: true
             }
         case LOGIN_USER_SUCCESS:
-            console.log(action.payload);
             return {
                 ...state,
                 isLoggingIn: false,
@@ -65,10 +64,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isEditingRequest: true
             }
-        case UPDATE_COMPLETE:
+        case UPDATE_START:
+            return {
+                ...state
+            }
+        case UPDATE_SUCCESS:
             return {
                 ...state,
                 isEditingRequest: false
+            }
+        case UPDATE_FAILURE:
+            return {
+                ...state
             }
         case DELETE_SUCCESS:
             return {

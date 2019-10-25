@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Header=styled.h2`
+const Header = styled.h2`
     font-family:'Roboto Condensed';
     font-size:1.5rem;
     text-decoration:underline;
@@ -20,18 +20,28 @@ const Titles = styled.p`
     font-size:1rem;
 `
 
-const Card=styled.div`
+const Card = styled.div`
     border:2px solid #253b56;
     border-radius:25px;
     display:flex;
     display:inline-block;
     align-items:center;
     margin:15px;
-    height:275px;
+    height:325px;
     width: 250px;
     padding:25px;
 `
-
+const Button = styled.button`
+    display:flex;
+    width:75px;
+    height:25px;
+    border-radius:10px;
+    font-family:'Roboto Condensed';
+    font-size:1rem;
+    justify-content:center;
+    display: inline-block;
+    margin: 10px;
+`
 
 
 const Request = props => {
@@ -46,11 +56,11 @@ const Request = props => {
                 <Titles>Number of Kids: {props.request.kids}</Titles>
                 <Titles>Description: {props.request.description}</Titles>
             </div>
-            <button onClick={() => editRequest(request)} >Edit</button>
-            <button onClick={() => deleteRequest(request)}>Delete</button>
-        </div>
 
-r
+            <Button onClick={() => editRequest(request)} >Edit</Button>
+            <Button onClick={() => deleteRequest(request)}>Delete</Button>
+
+        </Card>
     )
 }
 

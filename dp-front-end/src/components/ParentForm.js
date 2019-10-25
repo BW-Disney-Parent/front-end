@@ -34,7 +34,7 @@ const Button = styled.button`
     justify-content:center;
 `
 
-const Header=styled.h3`
+const Header = styled.h3`
     display:flex;
     text-decoration:underline;
 `
@@ -48,8 +48,9 @@ const ParentForm = props => {
     };
 
     useEffect(() => {
-
-    }, [])
+        console.log("currentRequest", props.currentRequest);
+        setParent({ ...props.currentRequest })
+    }, [props.currentRequest])
 
     const submitForm = e => {
         e.preventDefault();
@@ -99,17 +100,8 @@ const ParentForm = props => {
                     value={parent.description}
                     onChange={changeHandler} />
 
-
-
-
-
-                <Button type='submit'>Post Request</Button>
-
-
-
+                <Button type='submit'>{props.currentUser ? "Edit Request" : "Post Request"}</Button>
             </form>
-
-
         </Wrapper>
     );
 };
@@ -117,10 +109,10 @@ const ParentForm = props => {
 const mapStateToProps = state => {
     console.log(state);
     return {
-        user: state.currentUser
+        user: state.currentUser,
+        currentRequest: state.currentRequest
     }
 }
-
 
 export default connect(mapStateToProps, { addParent })(ParentForm);
 
