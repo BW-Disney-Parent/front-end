@@ -34,7 +34,7 @@ const Button = styled.button`
     justify-content:center;
 `
 
-const Header=styled.h3`
+const Header = styled.h3`
     display:flex;
     text-decoration:underline;
 `
@@ -100,17 +100,8 @@ const ParentForm = props => {
                     value={parent.description}
                     onChange={changeHandler} />
 
-
-
-
-
-                <Button type='submit'>Post Request</Button>
-
-
-
+                <Button type='submit'>{props.currentUser ? "Edit Request" : "Post Request"}</Button>
             </form>
-
-
         </Wrapper>
     );
 };
@@ -122,7 +113,6 @@ const mapStateToProps = state => {
         currentRequest: state.currentRequest
     }
 }
-
 
 export default connect(mapStateToProps, { addParent })(ParentForm);
 

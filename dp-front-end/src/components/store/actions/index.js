@@ -77,7 +77,7 @@ export const updateRequest = (updatedData) => dispatch => {
             dispatch({ type: UPDATE_SUCCESS, payload: res.data })
         })
         .catch(err => {
-            console.log(err.toString())
+            console.log(err.response)
             dispatch({ type: UPDATE_FAILURE, payload: err })
         })
 }
