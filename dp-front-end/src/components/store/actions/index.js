@@ -49,11 +49,40 @@ export const addParent = (newParent) => dispatch => {
     axiosWithAuth()
         .post('https://disney-parent-lambda.herokuapp.com/api/requests', newParent)
         .then(res => {
-            console.log(res)
+            console.log(res);
             dispatch({ type: FETCHING_MESSAGE_SUCCESS, payload: res.data.user })
         })
         .catch(err => {
-            console.log(err.toString())
+            console.log(err.toString());
             dispatch({ type: FETCHING_MESSAGE_FAILURE, payload: err.toString() })
+        })
+}
+
+export const EDIT_SUCCESS = 'EDIT_SUCCESS';
+
+export const editRequest = (request) => dispatch => {
+    console.log("test edit");
+    dispatch({ type: EDIT_SUCCESS, payload: request })
+}
+
+export const UPDATE_COMPLETE = "UPDATE_COMPLETE";
+
+export const updateRequest = (request) => dispatch => {
+    console.log("test update");
+    dispatch({ type: UPDATE_COMPLETE, payload: request })
+}
+
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAILURE = 'DELETE_FAILURE';
+
+export const deleteRequest = () => dispatch => {
+    console.log('test delete');
+    axiosWithAuth()
+        .delete('https://disney-parent-lambda.herokuapp.com/api/users/1')
+        .then(res => {
+            dispatch({ type: DELETE_SUCCESS, payload: res.data.user })
+        })
+        .catch(err => {
+            dispatch({ type: DELETE_FAILURE, payload: err })
         })
 }

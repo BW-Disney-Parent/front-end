@@ -36,6 +36,7 @@ const Card=styled.div`
 
 const Request = props => {
     console.log(props);
+    const { editRequest, deleteRequest, request } = props;
     return (
         <Card className="request">
             <Header>Request For:</Header>
@@ -45,7 +46,11 @@ const Request = props => {
                 <Titles>Number of Kids: {props.request.kids}</Titles>
                 <Titles>Description: {props.request.description}</Titles>
             </div>
-        </Card>
+            <button onClick={() => editRequest(request)} >Edit</button>
+            <button onClick={() => deleteRequest(request)}>Delete</button>
+        </div>
+
+r
     )
 }
 

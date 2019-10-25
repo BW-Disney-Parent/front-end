@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addParent, getParent } from './store/actions/index.js';
+import { addParent } from './store/actions/index.js';
 
 import styled from 'styled-components';
-import GetRequest from './GetRequest.js';
 
 const Wrapper = styled.div`
     display:flex;
@@ -48,10 +47,9 @@ const ParentForm = props => {
         setParent({ ...parent, [e.target.name]: e.target.value });
     };
 
-    // useEffect(() => {
-    //    const requests= props.getParent();
-    //     console.log('get parent:',requests);
-    // }, [])
+    useEffect(() => {
+
+    }, [])
 
     const submitForm = e => {
         e.preventDefault();
@@ -108,10 +106,9 @@ const ParentForm = props => {
                 <Button type='submit'>Post Request</Button>
 
 
-            <div>
-                {/* <GetRequest/> */}
-            </div>
-        </form>
+
+            </form>
+
 
         </Wrapper>
     );
