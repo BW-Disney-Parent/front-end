@@ -65,11 +65,21 @@ export const editRequest = (request) => dispatch => {
     dispatch({ type: EDIT_SUCCESS, payload: request })
 }
 
-export const UPDATE_COMPLETE = "UPDATE_COMPLETE";
+export const UPDATE_START = 'UPDATE_START';
+export const UPDATE_SUCCESS = 'UPDATE_SUCESS';
+export const UPDATE_FAILURE = 'UPDATE_FAILURE';
 
-export const updateRequest = (request) => dispatch => {
-    console.log("test update");
-    dispatch({ type: UPDATE_COMPLETE, payload: request })
+export const updateRequest = (updatedData) => dispatch => {
+    dispatch({ type: UPDATE_START });
+    axiosWithAuth()
+        .put('https://disney-parent-lambda.herokuapp.com/api/users/1', updatedData)
+        .then(res => {
+            dispatch({ type: UPDATE_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            console.log(err.toString())
+            dispatch({ type: UPDATE_FAILURE, payload: err })
+        })
 }
 
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';

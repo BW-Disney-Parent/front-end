@@ -39,8 +39,9 @@ const ParentForm = props => {
     };
 
     useEffect(() => {
-
-    }, [])
+        console.log("currentRequest", props.currentRequest);
+        setParent({ ...props.currentRequest })
+    }, [props.currentRequest])
 
     const submitForm = e => {
         e.preventDefault();
@@ -105,7 +106,8 @@ const ParentForm = props => {
 const mapStateToProps = state => {
     console.log(state);
     return {
-        user: state.currentUser
+        user: state.currentUser,
+        currentRequest: state.currentRequest
     }
 }
 
